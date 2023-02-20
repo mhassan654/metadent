@@ -4,3 +4,18 @@
 [submodule "Modules/TreatmentsModule"]
 	path = Modules/TreatmentsModule
 	url = https://Projectcodeug@dev.azure.com/Projectcodeug/MetaDent/_git/TreatmentsModule
+[submodule "Modules/HumanResourceModule"]
+	path = Modules/HumanResourceModule
+	url = https://Projectcodeug@dev.azure.com/Projectcodeug/MetaDent/_git/TreatmentsModule
+[submodule "Modules/SettingsModule"]
+	path = Modules/SettingsModule
+	url = https://Projectcodeug@dev.azure.com/Projectcodeug/MetaDent/_git/TreatmentsModule
+[submodule "Modules/BillingModule"]
+	path = Modules/BillingModule
+	url = https://Projectcodeug@dev.azure.com/Projectcodeug/MetaDent/_git/TreatmentsModule
+[submodule "Modules/PatientsModule"]
+	path = Modules/PatientsModule
+	url = https://Projectcodeug@dev.azure.com/Projectcodeug/MetaDent/_git/TreatmentsModule
+[submodule "Modules/AppointmentsModule"]
+	path = Modules/AppointmentsModule
+	url = https://Projectcodeug@dev.azure.com/Projectcodeug/MetaDent/_git/TreatmentsModule
