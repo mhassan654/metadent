@@ -5,6 +5,7 @@
 
 
 This is Metadent's backend's api official authentication module package that is required to kickstart the project's api authentication.
+This package is specifically tailored for metadent backend api
 
 ## Installation
 
@@ -56,6 +57,7 @@ If you discover any security related issues, please email hassansaava@gmail.com 
 ## Credits
 
 -   [MUWONGE HASSAN](https://github.com/mhassan654)
+-   [BENJAMIN KOOMA](https://github.com/koomabenjamin)
 -   [All Contributors](../../contributors)
 
 ## License

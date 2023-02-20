@@ -11,8 +11,6 @@
 namespace App\Models;
 
 use App\Http\Permissions\HasPermissionsTrait;
-use App\Mail\SendCodeMail;
-use Metadent\AuthModule\Models\EmployeeCode;
 use Exception;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -20,6 +18,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Mail;
 use Laravel\Sanctum\HasApiTokens;
+use Metadent\AuthModule\Models\EmployeeCode;
+use SendCodeMail;
 use Spatie\Permission\Traits\HasRoles;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 

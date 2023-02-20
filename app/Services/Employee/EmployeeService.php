@@ -3,11 +3,11 @@
 namespace App\Services\Employee;
 
 use App\Helpers\LogActivity;
-use App\Mail\SendCodeMail;
-use Metadent\AuthModule\Models\Employee;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
+use Metadent\AuthModule\Models\Employee;
+use SendCodeMail;
 
 class EmployeeService
 {
