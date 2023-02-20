@@ -1,3 +1,6 @@
 [submodule "Modules/AuthModule"]
 	path = Modules/AuthModule
 	url = https://Projectcodeug@dev.azure.com/Projectcodeug/MetaDent/_git/AuthModule
+[submodule "Modules/Modules/TreatmenntsModule"]
+	path = Modules/Modules/TreatmenntsModule
+	url = https://Projectcodeug@dev.azure.com/Projectcodeug/MetaDent/_git/TreatmentsModule
