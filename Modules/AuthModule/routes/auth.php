@@ -10,40 +10,33 @@
  */
 
 use App\Http\Controllers\SmsController;
-use App\Http\Controllers\Api\v2\AuthenticationController;
 use Illuminate\Support\Facades\Route;
+use Metadent\AuthModule\Http\Controllers\Api\AuthController;
 
-Route::group(['prefix' => 'api/v2/auth'], function () {
 
-    Route::post("login", [AuthenticationController::class, "two_factor_login"]);
 
-    Route::post("otp/send", [AuthenticationController::class, "send_phone_otp"]);
+    Route::post("login", [AuthController::class, "two_factor_login"]);
+
+    Route::post("otp/send", [AuthController::class, "send_phone_otp"]);
 
     // Route::post('2fa', [TwoFAController::class, "store"]);
 
-    Route::post('2fa', [AuthenticationController::class, "verify_2fa_and_login"]);
+    Route::post('2fa', [AuthController::class, "verify_2fa_and_login"]);
 
     // Route::post('verify/{code}', [\App\Http\Controllers\Api\v2\VerificationController::class, "verification_confirmation"]);
 
     Route::group(['middleware' => ['auth:api', 'XSS']], function () {
 
         // Check authenticated user route
-        Route::get('me', [AuthenticationController::class, 'me']);
+        Route::get('me', [AuthController::class, 'me']);
 
         // Refresh authenticated user token route
-        Route::post('refresh', [AuthenticationController::class, 'refresh']);
+        Route::post('refresh', [AuthController::class, 'refresh']);
 
         // Logout user route
-        Route::post('logout', [AuthenticationController::class, "destroy"]);
+        Route::post('logout', [AuthController::class, "destroy"]);
     });
-    Route::post('verify-email', [AuthenticationController::class, "verify"]);
+    Route::post('verify-email', [AuthController::class, "verify"]);
 
-    Route::post("test_qr_code_email", [AuthenticationController::class, "test_qr_code"]);
+    Route::post("test_qr_code_email", [AuthController::class, "test_qr_code"]);
 
-});
-
-// Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
-//     $request->fulfill();
-
-//     return response()->json('email verified');
-// })->middleware(['auth', 'signed'])->name('verification.verify');

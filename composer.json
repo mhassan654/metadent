@@ -21,7 +21,6 @@
         "maatwebsite/excel": "^3.1",
         "mailchimp/marketing": "^3.0",
         "matthewbdaly/laravel-azure-storage": "^2.0",
-        "metadent/auth-module": "dev-main",
         "meyfa/php-svg": "^0.14.2",
         "milon/barcode": "^10.0",
         "mollie/laravel-mollie": "^2.22",
@@ -45,7 +44,8 @@
         "psr-4": {
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
-            "Database\\Seeders\\": "database/seeders/"
+            "Database\\Seeders\\": "database/seeders/",
+            "Metadent\\AuthModule\\": "Modules/AuthModule/src"
         },
         "files": [
             "app/Modules/Core/Helpers.php",

@@ -1,5 +1,6 @@
 <?php
 
+namespace Metadent\AuthModule\Mail;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;

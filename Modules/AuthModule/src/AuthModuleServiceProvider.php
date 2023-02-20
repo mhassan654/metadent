@@ -2,6 +2,7 @@
 
 namespace Metadent\AuthModule;
 
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 
 class AuthModuleServiceProvider extends ServiceProvider
@@ -17,7 +18,7 @@ class AuthModuleServiceProvider extends ServiceProvider
         // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'auth-module');
         // $this->loadViewsFrom(__DIR__.'/../resources/views', 'auth-module');
          $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
-        $this->loadRoutes();
+        $this->registerRoutes();
 
         if ($this->app->runningInConsole()) {
             $this->publishes([
@@ -44,6 +45,21 @@ class AuthModuleServiceProvider extends ServiceProvider
         }
     }
 
+    protected function registerRoutes()
+    {
+        Route::group($this->routeConfiguration(), function () {
+            $this->loadRoutesFrom(__DIR__ . '/../routes/auth.php');
+        });
+    }
+
+    protected function routeConfiguration()
+    {
+        return [
+            'prefix' => config('auth-module.prefix'),
+            'middleware' => config('auth-module.middleware'),
+        ];
+    }
+
     /**
      * Register the application services.
      */
@@ -62,8 +78,5 @@ class AuthModuleServiceProvider extends ServiceProvider
     /**
      * Load api routes
      */
-    private function loadRoutes(): void
-    {
-        $this->loadRoutesFrom(__DIR__ . '/../routes/auth.php');
-    }
+
 }
