@@ -806,7 +806,6 @@ class AppointmentsController extends ApiBaseController
             $appointment->day = $appointment_day;
             $doctor_ids = $appointment->doctors;
             $doctors_list = []; foreach ($doctor_ids as $doctor_id):
-                // $doctors_list[] = User::find($doctor_id);
                 $doctors_list[] = Employee::find($doctor_id);
             endforeach;
 
@@ -837,7 +836,6 @@ class AppointmentsController extends ApiBaseController
             $appointment->day = $appointment_day;
             $doctor_ids = $appointment->doctors;
             $doctors_list = []; foreach ($doctor_ids as $doctor_id):
-                // $doctors_list[] = User::find($doctor_id);
                 $doctors_list[] = Employee::find($doctor_id);
             endforeach;
 
@@ -981,7 +979,6 @@ class AppointmentsController extends ApiBaseController
             foreach ($patient_appointments as $appointment) {
                 $doctor_list = [];
                 foreach ($appointment->doctors as $doctor) {
-                    // $doctor_list[] = User::with('department')->find($doctor);
                     $doctor_list[] = Employee::with('department')->find($doctor);
                 }
                 $appointment->doctors = $doctor_list;
@@ -1030,7 +1027,6 @@ class AppointmentsController extends ApiBaseController
             if (!is_null($serving_appointment)) {
                 $doctors = [];
                 foreach ($serving_appointment->doctors as $doctor) {
-                    // $doctors[] = User::with('department')->find($doctor);
                     $doctors[] = Employee::with('department')->find($doctor);
                 }
                 $serving_appointment->doctors = $doctors;

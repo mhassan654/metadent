@@ -33,7 +33,7 @@ Route::group(['prefix' =>'invoices', 'middleware' => ['api']],function(){
     Route::post('paid', [InvoicesController::class, 'allPaidInvoices']);
 
         // Fetch unpaid invoices route
-    Route::post('unpaid', [InvoicesController::class, 'unPaidInvoices']);
+//    Route::post('unpaid', [InvoicesController::class, 'unPaidInvoices']);
 
     // send invoice to patients
     Route::post('send-reminder',[InvoicesController::class, 'sendInvoice']);
