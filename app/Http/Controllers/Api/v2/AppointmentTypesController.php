@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api\v2;
 
 use App\Models\Appointment;
 use App\Models\AppointmentType;
-use App\Modules\Metadent\AuthModule\src\Models\Employee;
+use Metadent\AuthModule\Models\Employee;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 

@@ -7,7 +7,7 @@ use App\Exports\UserLogActivityExport;
 use App\Models\LogActivity;
 use App\Models\Patient;
 use App\Modules\Common\Helper;
-use App\Modules\Metadent\AuthModule\src\Models\Employee;
+use Metadent\AuthModule\Models\Employee;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;

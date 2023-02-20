@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use App\Mail\SendCodeMail;
-use App\Modules\Metadent\AuthModule\src\Models\Employee;
+use Metadent\AuthModule\Models\Employee;
 use Exception;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -278,7 +278,7 @@ class Patient extends Authenticatable implements JWTSubject
     public function getPatientsAttribute()
     {
         if (!$this->relationLoaded('secondaryDoctors')) {
-            $secondaryDoctors = \App\Modules\Metadent\AuthModule\src\Models\Employee::whereIn('id', $this->secondary_doctor_id)->get();
+            $secondaryDoctors = \Metadent\AuthModule\Models\Employee::whereIn('id', $this->secondary_doctor_id)->get();
 
             $this->setRelation('secondaryDoctors', $secondaryDoctors);
         }
@@ -293,7 +293,7 @@ class Patient extends Authenticatable implements JWTSubject
      */
     public function secondaryDoctors()
     {
-        return \App\Modules\Metadent\AuthModule\src\Models\Employee::whereIn('id', $this->secondary_doctor_id);
+        return \Metadent\AuthModule\Models\Employee::whereIn('id', $this->secondary_doctor_id);
     }
 
     /**

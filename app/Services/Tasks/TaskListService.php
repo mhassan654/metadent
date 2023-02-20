@@ -37,7 +37,7 @@ class TaskListService
                     ]);
                 }
                 $task->status = \App\Models\Status::where('id', $task->status_id)->first(['id', 'title']);
-                $task->created_by = !is_null($task->created_by) ? \App\Modules\Metadent\AuthModule\src\Models\Employee::where('id', $task->created_by)->first(['id', 'first_name', 'last_name'])
+                $task->created_by = !is_null($task->created_by) ? \Metadent\AuthModule\Models\Employee::where('id', $task->created_by)->first(['id', 'first_name', 'last_name'])
                     ->makeHidden(['roles', 'permissions']) : null;
                 unset($task->status_id);
                 unset($task->employee_id);
@@ -66,9 +66,9 @@ class TaskListService
                 }
 
                 $task->status = \App\Models\Status::where('id', $task->status_id)->first(['id', 'title']);
-                $task->employee = !is_null($task->employee_id) ? \App\Modules\Metadent\AuthModule\src\Models\Employee::where('id', $task->employee_id)->first(['id', 'first_name', 'last_name'])
+                $task->employee = !is_null($task->employee_id) ? \Metadent\AuthModule\Models\Employee::where('id', $task->employee_id)->first(['id', 'first_name', 'last_name'])
                     ->makeHidden(['roles', 'permissions']) : null;
-                $task->created_by = !is_null($task->created_by) ? \App\Modules\Metadent\AuthModule\src\Models\Employee::where('id', $task->created_by)->first(['id', 'first_name', 'last_name'])
+                $task->created_by = !is_null($task->created_by) ? \Metadent\AuthModule\Models\Employee::where('id', $task->created_by)->first(['id', 'first_name', 'last_name'])
                     ->makeHidden(['roles', 'permissions']) : null;
                 unset($task->status_id);
                 unset($task->employee_id);

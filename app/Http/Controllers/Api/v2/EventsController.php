@@ -10,7 +10,7 @@
 namespace App\Http\Controllers\Api\v2;
 
 use App\Models\Event;
-use App\Modules\Metadent\AuthModule\src\Models\Employee;
+use Metadent\AuthModule\Models\Employee;
 use App\Services\EventService;
 use Carbon\Carbon;
 use Illuminate\Http\Request;

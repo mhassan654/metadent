@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api\v2;
 
 use App\Models\Task;
 use App\Models\TaskMessage;
-use App\Modules\Metadent\AuthModule\src\Models\Employee;
+use Metadent\AuthModule\Models\Employee;
 use Illuminate\Support\Facades\Validator;
 
 class TaskMessagesController extends BaseController

@@ -4,7 +4,7 @@ namespace App\Services\RecallService;
 
 use App\Mail\RecallMailing;
 use App\Models\smsPatient;
-use App\Modules\Metadent\AuthModule\src\Models\Employee;
+use Metadent\AuthModule\Models\Employee;
 use buibr\Budget\BudgetSMS;
 use Mail;
 

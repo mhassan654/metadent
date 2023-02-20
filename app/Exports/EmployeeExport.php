@@ -19,7 +19,7 @@ class EmployeeExport implements FromCollection, withHeadings, withMapping
     */
     public function collection()
     {
-        return \App\Modules\Metadent\AuthModule\src\Models\Employee::with(['position','reportingTo','city','department'])
+        return \Metadent\AuthModule\Models\Employee::with(['position','reportingTo','city','department'])
         ->whereIn('id',$this->employees)->latest()->get(['id','first_name','email','phone','last_name','city_id','position_id','reporting_to','department_id'])
         ->makeHidden(['permissions']);
     }

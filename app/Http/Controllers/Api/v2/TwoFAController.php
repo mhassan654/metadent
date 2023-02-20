@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api\v2;
 
 use App\Modules\Common\Helper;
 use App\Modules\Core\LogActivity;
-use App\Modules\Metadent\AuthModule\src\Models\EmployeeCode;
+use Metadent\AuthModule\Models\EmployeeCode;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;

@@ -15,7 +15,7 @@ use App\Models\Patient;
 use App\Models\replying;
 use App\Models\smsPatient;
 use App\Models\User;
-use App\Modules\Metadent\AuthModule\src\Models\Employee;
+use Metadent\AuthModule\Models\Employee;
 use App\Notifications\EmailNotification;
 use App\Services\GeneralComService\GeneralComService;
 use App\Services\onBoardDocuments\OnBoardDocuments;

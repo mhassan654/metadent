@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Modules\Metadent\AuthModule\src\Services;
+namespace Metadent\AuthModule\Services;
 
 use App\Modules\Core\LogActivity;
 use Carbon\Carbon;

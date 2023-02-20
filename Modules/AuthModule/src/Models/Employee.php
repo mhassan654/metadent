@@ -21,7 +21,7 @@ use App\Models\RateType;
 use App\Models\SubDepartment;
 use App\Models\Supervisor;
 use App\Models\Task;
-use App\Modules\Metadent\AuthModule\src\Models\EmployeeCode;
+use Metadent\AuthModule\Models\EmployeeCode;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
