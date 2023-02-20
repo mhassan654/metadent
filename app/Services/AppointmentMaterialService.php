@@ -1,12 +1,12 @@
 <?php
 namespace App\Services;
 
-use Carbon\Carbon;
-use App\Models\Employee;
-use App\Models\Department;
 use App\Models\Appointment;
+use App\Models\Department;
 use App\Models\Task;
+use Metadent\AuthModule\Models\Employee;
 use App\Notifications\TaskCreatedNotification;
+use Carbon\Carbon;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Log;
 
@@ -27,9 +27,9 @@ class AppointmentMaterialService
                         if($task){
                             $employee->notify(new TaskCreatedNotification($task));
                         }
-    
+
                     }
-                    
+
                 }
             }
         } catch (\Throwable $th) {
@@ -96,7 +96,7 @@ class AppointmentMaterialService
         $task->employee()->associate($employee);
         $task->title = 'Appointment Material Delivery';
         $task->due_date = $delivery_date->format('dd-mm-YYYY');
-        $task->task = "The following material(s) are required and should be delivered : $appointment->material_name for appoinment $appointment->appointment_code";  
+        $task->task = "The following material(s) are required and should be delivered : $appointment->material_name for appoinment $appointment->appointment_code";
         $task->status_id = 1;
         $task->save();
         return $task;

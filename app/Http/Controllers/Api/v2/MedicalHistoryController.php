@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers\Api\v2;
 
-use App\Http\Controllers\ApiBaseController;
-use Illuminate\Http\Request;
-use App\Models\Employee;
 use App\Models\MedicalHistory;
+use Metadent\AuthModule\Models\Employee;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 class MedicalHistoryController extends BaseController

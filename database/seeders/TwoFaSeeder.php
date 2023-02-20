@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Employee;
+use Metadent\AuthModule\Models\Employee;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Schema;
 use Spatie\Permission\Models\Permission;

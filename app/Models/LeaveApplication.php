@@ -2,11 +2,9 @@
 
 namespace App\Models;
 
-use App\Models\Employee;
-use App\Models\LeaveType;
-use App\Models\Supervisor;
-use Illuminate\Database\Eloquent\Model;
+use Metadent\AuthModule\Models\Employee;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 class LeaveApplication extends Model
 {

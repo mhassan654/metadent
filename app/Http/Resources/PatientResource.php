@@ -23,7 +23,7 @@ class PatientResource extends JsonResource
             'birth_date'=>$this->birth_date,
             'country'=>$this->country,
             'city'=>$this->city,
-            'dentist' => !is_null($this->dentist) ? \App\Models\Employee::with(['department','employeeType'])->where('id',$this->dentist)
+            'dentist' => !is_null($this->dentist) ? \Metadent\AuthModule\Models\Employee::with(['department','employeeType'])->where('id',$this->dentist)
                           ->first(['id','first_name','last_name','weeks','week_days','department_id','employee_type_id','frequency_id','contract_start_date','contract_end_date','availability','interval'])
                           ->makeHidden(['roles','permissions']) : null
         ];

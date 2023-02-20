@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Services\Auth;
+namespace Metadent\AuthModule\Services;
 
 use App\Mail\Verify2faCode;
-use Illuminate\Support\Facades\Mail;
 use App\Services\Images\QrCodeService;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Mail;
 use PragmaRX\Google2FAQRCode\Google2FA;
 
 class Google2faService

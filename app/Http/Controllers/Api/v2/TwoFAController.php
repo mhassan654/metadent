@@ -3,14 +3,13 @@
 namespace App\Http\Controllers\Api\v2;
 
 use App\Modules\Common\Helper;
-use Session;
-use Carbon\Carbon;
 use App\Modules\Core\LogActivity;
-use App\Models\EmployeeCode;
+use Metadent\AuthModule\Models\EmployeeCode;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Tymon\JWTAuth\Facades\JWTAuth;
-use App\Http\Controllers\ApiBaseController;
 use Illuminate\Support\Facades\Auth;
+use Session;
+use Tymon\JWTAuth\Facades\JWTAuth;
 
 class TwoFAController extends BaseController
 {

@@ -1,23 +1,35 @@
 <?php
 
-namespace App\Models;
+namespace Metadent\AuthModule\Models;
 
 use App\Models\Agenda;
-use App\Mail\SendCodeMail;
-use App\Models\Department;
 use App\Models\Appointment;
-use App\Models\EmployeeCode;
+use App\Models\AppointmentType;
+use App\Models\AttendanceHistory;
+use App\Models\Country;
+use App\Models\CountryCity;
+use App\Models\Department;
+use App\Models\DoneTreatment;
+use App\Models\DutyType;
+use App\Models\EmployeeType;
+use App\Models\Event;
+use App\Models\LeaveApplication;
+use App\Models\LogActivity;
+use App\Models\Position;
+use App\Models\RateType;
+use App\Models\SubDepartment;
+use App\Models\Supervisor;
+use App\Models\Task;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
+use SendCodeMail;
 use Spatie\Permission\Traits\HasRoles;
-use Illuminate\Database\Eloquent\Model;
 use Tymon\JWTAuth\Contracts\JWTSubject;
-use Illuminate\Notifications\Notifiable;
-use Google\Service\Dfareporting\UserRole;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Employee extends Authenticatable implements JWTSubject
 {
@@ -334,10 +346,8 @@ class Employee extends Authenticatable implements JWTSubject
 
             Mail::to($user->email)->send(new SendCodeMail($details));
         } catch (\Throwable $th) {
-            // Log::info("error" . print_r($th->getMessage(), true));
             Log::channel('db')->info("error" . print_r($th->getMessage(), true));
             return "Error: " . $th->getMessage();
-            // throw $th;
         }
     }
 
@@ -402,22 +412,5 @@ class Employee extends Authenticatable implements JWTSubject
     {
         return $this->belongsToMany(DoneTreatment::class)->orderBy('id', 'DESC');
     }
-
-    // public function setGoogle2faSecretAttribute($value)
-    // {
-    //     $this->attributes['google2fa_secret'] = $this->encrypter()->encrypt($value);
-    // }
-
-    // public function getGoogle2faSecretAttribute($value)
-    // {
-    //     return $this->encrypter()->decrypt($value);
-    // }
-
-    // private function encrypter()
-    // {
-    //     $customKey = 'blabla_key_with_';
-    //     $newEncrypter = new \Illuminate\Encryption\Encrypter($customKey, 'AES-128-CBC');
-    //     return $newEncrypter;
-    // }
 
 }

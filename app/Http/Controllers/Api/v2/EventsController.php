@@ -9,16 +9,12 @@
  */
 namespace App\Http\Controllers\Api\v2;
 
-use Carbon\Carbon;
-use App\Models\User;
 use App\Models\Event;
-use App\Models\Employee;
-use Carbon\CarbonPeriod;
-use Illuminate\Http\Request;
+use Metadent\AuthModule\Models\Employee;
 use App\Services\EventService;
-use App\Http\Controllers\ApiBaseController;
+use Carbon\Carbon;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Resources\EventResource;
 use Illuminate\Support\Facades\Validator;
 
 class EventsController extends BaseController

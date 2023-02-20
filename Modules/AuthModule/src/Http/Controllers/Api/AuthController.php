@@ -1,24 +1,22 @@
 <?php
 
-namespace App\Http\Controllers\Api\v2;
+namespace Metadent\AuthModule\Http\Controllers\Api;
 
-use Carbon\Carbon;
+use App\Models\Translation;
 use App\Modules\Common\Helper;
 use App\Modules\Core\LogActivity;
-use App\Models\Employee;
-use App\Models\Translation;
-use Illuminate\Support\Str;
-use App\Models\EmployeeCode;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
-use App\Services\Auth\AuthService;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
-use App\Http\Controllers\ApiBaseController;
-use App\Services\Auth\Google2faService;
-use Illuminate\Support\Facades\RateLimiter;
+use Illuminate\Support\Str;
+use Metadent\AuthModule\Http\Controllers\BaseController;
+use Metadent\AuthModule\Models\Employee;
+use Metadent\AuthModule\Models\EmployeeCode;
+use Metadent\AuthModule\Services\AuthService;
+use Metadent\AuthModule\Services\Google2faService;
 
-
-class AuthenticationController extends ApiBaseController
+class AuthController extends BaseController
 {
     public $userData;
 
@@ -270,4 +268,5 @@ class AuthenticationController extends ApiBaseController
             return $this->sendError('Not logged in');
         }
     }
+
 }

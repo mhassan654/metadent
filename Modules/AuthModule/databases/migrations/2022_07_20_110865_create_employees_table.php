@@ -118,10 +118,6 @@ class CreateEmployeesTable extends Migration
                 ->onUpdate('CASCADE')
                 ->onDelete('CASCADE');
 
-                // $table->foreign('first_supervisor')->references('id')->on('supervisors')
-                // ->onUpdate('CASCADE')
-                // ->onDelete('CASCADE');
-
             $table->timestamps();
         });
 

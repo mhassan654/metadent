@@ -2,12 +2,12 @@
 
 namespace App\Services\Employee;
 
-use App\Models\Employee;
-use App\Mail\SendCodeMail;
 use App\Helpers\LogActivity;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
+use Metadent\AuthModule\Models\Employee;
+use SendCodeMail;
 
 class EmployeeService
 {

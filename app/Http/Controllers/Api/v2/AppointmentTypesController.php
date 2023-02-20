@@ -2,16 +2,11 @@
 
 namespace App\Http\Controllers\Api\v2;
 
-use App\Models\User;
-use App\Models\Employee;
 use App\Models\Appointment;
-use Illuminate\Support\Arr;
-use Illuminate\Http\Request;
 use App\Models\AppointmentType;
-use App\Http\Controllers\ApiBaseController;
+use Metadent\AuthModule\Models\Employee;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\ApiBaseController;
-use Illuminate\Support\Facades\Validator;
 
 class AppointmentTypesController extends BaseController
 {

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Metadent\AuthModule\Models\Employee;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;

@@ -10,13 +10,9 @@
 
 namespace App\Services\Tasks;
 
-use App\Models\Task;
-use App\Models\Invoice;
-use App\Traits\ApiResponser;
-use App\Models\InvoiceTransaction;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
-use App\Services\Tasks\TaskListService;
+use App\Models\Task;
+use App\Traits\ApiResponser;
 use Illuminate\Support\Facades\Validator;
 
 class TaskUpdateService
@@ -60,9 +56,9 @@ class TaskUpdateService
 
             $task_to_return = Task::with('status:id,title')->find($task->id);
 
-            $employee = \App\Models\Employee::where('id', $task->employee_id)->first(['id', 'first_name', 'last_name'])
+            $employee = \Metadent\AuthModule\Models\Employee::where('id', $task->employee_id)->first(['id', 'first_name', 'last_name'])
                 ->makeHidden(['roles', 'permissions']);
-            $created_by = !is_null($task->created_by) ? \App\Models\Employee::where('id', $task->created_by)->first(['id', 'first_name', 'last_name'])
+            $created_by = !is_null($task->created_by) ? \Metadent\AuthModule\Models\Employee::where('id', $task->created_by)->first(['id', 'first_name', 'last_name'])
                 ->makeHidden(['roles', 'permissions']) : null;
 
             $task_to_return->created_by = $created_by;

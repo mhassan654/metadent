@@ -2,10 +2,9 @@
 
 namespace App\Exports;
 
+use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\WithMapping;
-
-use Maatwebsite\Excel\Concerns\FromCollection;
 
 class EmployeeExport implements FromCollection, withHeadings, withMapping
 {
@@ -20,7 +19,7 @@ class EmployeeExport implements FromCollection, withHeadings, withMapping
     */
     public function collection()
     {
-        return \App\Models\Employee::with(['position','reportingTo','city','department'])
+        return \Metadent\AuthModule\Models\Employee::with(['position','reportingTo','city','department'])
         ->whereIn('id',$this->employees)->latest()->get(['id','first_name','email','phone','last_name','city_id','position_id','reporting_to','department_id'])
         ->makeHidden(['permissions']);
     }

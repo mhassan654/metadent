@@ -2,17 +2,15 @@
 
 namespace App\Http\Controllers\Api\v2;
 
-use slots;
-use Carbon\Carbon;
-use App\Models\User;
-use App\Models\Employee;
 use App\Models\Appointment;
-use App\Modules\Core\LogActivity;
-use Illuminate\Http\Request;
 use App\Models\QuickAppointment;
-use App\Http\Controllers\ApiBaseController;
+use App\Modules\Core\LogActivity;
+use Metadent\AuthModule\Models\Employee;
+use Carbon\Carbon;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use slots;
 
 class QuickAppointmentController extends BaseController
 {

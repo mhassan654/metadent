@@ -2,16 +2,14 @@
 
 namespace App\Http\Controllers\Api\v2;
 
-use App\Modules\Common\Helper;
 use App\Mail\SendResetPasswordEmail;
-use App\Models\Employee;
+use App\Modules\Common\Helper;
+use Metadent\AuthModule\Models\Employee;
 use Carbon\Carbon;
-use App\Http\Controllers\ApiBaseController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 
 class PasswordResetController extends BaseController

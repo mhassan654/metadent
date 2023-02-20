@@ -1,20 +1,19 @@
 <?php
 
-namespace App\Services\Auth;
+namespace Metadent\AuthModule\Services;
 
 use App\Modules\Core\LogActivity;
 use Carbon\Carbon;
-use App\Models\Employee;
-use Illuminate\Support\Str;
-use App\Models\EmployeeCode;
-use App\Services\Sms\SmsService;
-use Illuminate\Support\Facades\DB;
-use Tymon\JWTAuth\Facades\JWTAuth;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Eloquent\Model;
-use PragmaRX\Google2FAQRCode\Google2FA;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\RateLimiter;
+use Illuminate\Support\Str;
+use Metadent\AuthModule\Models\Employee;
+use Metadent\AuthModule\Models\EmployeeCode;
+use PragmaRX\Google2FAQRCode\Google2FA;
+use Tymon\JWTAuth\Facades\JWTAuth;
 
 class AuthService
 {
@@ -66,6 +65,9 @@ class AuthService
         throw new \Exception('Invalid or expired code entered');
     }
 
+    /**
+     * @throws \Exception
+     */
     public static function attemptLogin(string $email, string $password, string|null $login_type = null): Model | string
     {
 
@@ -357,8 +359,6 @@ class AuthService
         $login_2fa_method = $employee->login_2fa_method;
 
         if ($login_2fa_method == LOGIN_WITH_SMS || $login_2fa_method == LOGIN_WITH_EMAIL) {
-            // SmsService::verifyOtp($otpCode);
-            // return self::loginWithOnlyEmail($email);
             return self::verifyCodeAndLogin($otpCode, $employee);
         } else {
             return self::verify2faUsingApp(code: $otpCode, employee: $employee);
