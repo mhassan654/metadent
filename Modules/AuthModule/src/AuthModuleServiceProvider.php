@@ -45,6 +45,9 @@ class AuthModuleServiceProvider extends ServiceProvider
         }
     }
 
+    /**
+     * Load api routes
+     */
     protected function registerRoutes()
     {
         Route::group($this->routeConfiguration(), function () {
@@ -52,7 +55,7 @@ class AuthModuleServiceProvider extends ServiceProvider
         });
     }
 
-    protected function routeConfiguration()
+    protected function routeConfiguration(): array
     {
         return [
             'prefix' => config('auth-module.prefix'),
@@ -74,9 +77,5 @@ class AuthModuleServiceProvider extends ServiceProvider
         });
     }
 
-
-    /**
-     * Load api routes
-     */
 
 }
