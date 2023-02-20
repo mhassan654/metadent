@@ -30,43 +30,44 @@ use App\Exports\patientAppointmentExport;
 
 class AppointmentsController extends ApiBaseController
 {
-    public function __construct()
+    protected AppointmentService $appointmentService;
+    public function __construct(AppointmentService $appointmentService)
     {
-               $this->middleware(["auth:api"]);
-        // auth()->check();
+        $this->appointmentService = $appointmentService;
+        $this->middleware(["auth:api"]);
     }
 
     //TIED TO v1/patients/all ROUTE IN THE api.php FILE IN THE ROUTES FOLDER
-    public function index(AppointmentService $appointmentService)
+    public function index()
     {
         try {
             LogActivity::addToLog("Read Appointment List", "Read");
-            return $this->customSuccessResponseWithPayload($appointmentService->all_appointments());
+            return $this->customSuccessResponseWithPayload($this->appointmentService->all_appointments());
         } catch (\Throwable $th) {
             return $this->customFailResponseWithPayload($th->getMessage());
         }
     }
 
-    public function current_day_appointments(AppointmentService $appointmentService)
+    public function current_day_appointments()
     {
         LogActivity::addToLog("Read Daily Appointment List", "Read");
-        return $this->customSuccessResponseWithPayload($appointmentService->get_today_appointments());
+        return $this->customSuccessResponseWithPayload($this->appointmentService->get_today_appointments());
 
     }
-    public function dashboard_upcoming_appointments(AppointmentService $appointmentService)
+    public function dashboard_upcoming_appointments()
     {
         LogActivity::addToLog("Read Upcoming Appointment List", "Read");
-        return $this->customSuccessResponseWithPayload($appointmentService->dashboard_upcoming_appointments());
+        return $this->customSuccessResponseWithPayload($this->appointmentService->dashboard_upcoming_appointments());
     }
 
-    public function number_current_day_appointments(AppointmentService $appointmentService)
+    public function number_current_day_appointments()
     {
-        return $this->customSuccessResponseWithPayload(count($appointmentService->get_today_appointments()));
+        return $this->customSuccessResponseWithPayload(count($this->appointmentService->get_today_appointments()));
     }
 
-    public function create_appointment(Request $request, AppointmentService $appointmentService)
+    public function create_appointment(Request $request)
     {
-        return $appointmentService->create_new_appointment($request);
+        return $this->appointmentService->create_new_appointment($request);
 
     }
 
@@ -174,8 +175,6 @@ class AppointmentsController extends ApiBaseController
             $errors = $validator->errors();
             return $this->customFailResponseMessage($validator->messages(), 404);
         }
-
-        $appointmentService = new AppointmentService();
         $appointment_to_update = Appointment::find(request()->appointmentId);
         //check if appointment has child appointments
         $child_appointments = Appointment::where('parent_id', $appointment_to_update->parent_id)->get();
@@ -295,7 +294,7 @@ class AppointmentsController extends ApiBaseController
                                 LogActivity::addToLog("Appointment Deleted", "Delete", null, null, null, null, null, $appointment->id);
                                 $appointment->delete();
                             }
-                            return $this->customSuccessResponseWithPayload($appointmentService->all_appointments());
+                            return $this->customSuccessResponseWithPayload($this->appointmentService->all_appointments());
                         }
 
                     } else if ($appointment_frequency_id && $appointment_frequency_id = 1) {
@@ -438,7 +437,7 @@ class AppointmentsController extends ApiBaseController
 
     }
 
-    public function confirm_appointment(AppointmentService $appointmentService)
+    public function confirm_appointment()
     {
         $appointment = Appointment::where('id', request()->appointmentId)
             ->with(["patient", "appointmentType", "treatmentType"])
@@ -450,51 +449,10 @@ class AppointmentsController extends ApiBaseController
                 "status_id" => 1,
             ]);
             LogActivity::addToLog("Appointment Confirmed", "Update", null, null, null, null, null, $appointment->id);
-            // try {
-            //     $mail_details = AutoMail::where('category_id', 2)->first();
-            //     $body = '';
-            //     $subject = '';
-            //     if (is_null($mail_details)) {
-            //         $subject = 'Appointment Confirmation';
-            //         $body = 'Thank you for choosing Meta Dent for your dental services.
-            //                 Your appointment is confirmed.';
-            //     } else {
-            //         $body = $mail_details->body;
-            //         $subject = $mail_details->subject;
-            //     }
-            //     foreach ($appointment->doctors as $doctor) {
-            //         $doctor_detail = User::where('id', $doctor)->first(['first_name', 'last_name', 'email']);
-            //         $mail_content = [
-            //             'problem' => $appointment->treatment_type ? $appointment->treatment_type->title : 'To be discussed with Patient',
-            //             'firstName' => $doctor_detail->first_name,
-            //             'lastName' => $doctor_detail->last_name,
-            //             'doctorEmail' => $doctor_detail->email,
-            //             'patientFirstName' => $appointment->patient->first_name,
-            //             'patientLastName' => $appointment->patient->last_name,
-            //             'body' => $body,
-            //             'subject' => $subject,
-            //         ];
-            //         Mail::to($mail_content['doctorEmail'])->send(new AppointmentReminderMail($mail_content));
-            //     }
-            //     $doctor_info = User::where('id', $appointment->doctors[0])->first(['first_name', 'last_name']);
-            //     $patient_mail = [
-            //         'patientEmail' => $appointment->patient->email,
-            //         'firstName' => $appointment->patient->first_name,
-            //         'lastName' => $appointment->patient->last_name,
-            //         'appointmentDate' => $appointment->date,
-            //         'doctorFirstName' => $doctor_info->first_name,
-            //         'doctorLastName' => $doctor_info->last_name,
-            //         'body' => $body,
-            //         'subject' => $subject,
-            //     ];
-            //     Mail::to($patient_mail['patientEmail'])->send(new PatientAppointmentReminder($patient_mail));
-            // } catch (\Throwable$th) {
-            //     return $this->customFailResponseWithPayload($th->getMessage());
-            // }
-            // Return all patients falling in the given facility id
+
             if ($this->authUser()->can('Appointments View')):
 
-                return $appointmentService->all_appointments();
+                return $this->appointmentService->all_appointments();
             endif;
 
             return $this->customFailResponseWithPayload('Not Authorized');
@@ -503,7 +461,7 @@ class AppointmentsController extends ApiBaseController
         return $this->customFailResponseWithPayload('Appointment not found');
     }
 
-    public function close_appointment(AppointmentService $appointmentService)
+    public function close_appointment()
     {
         $appointment = Appointment::find(request()->appointmentId);
 
@@ -518,14 +476,14 @@ class AppointmentsController extends ApiBaseController
             // Return all patients falling in the given facility id
             if ($this->authUser()->can('Appointments View')):
 
-                return $appointmentService->all_appointments();
+                return $this->appointmentService->all_appointments();
             endif;
         endif;
 
         return $this->customFailResponseWithPayload('Appointment not found');
     }
 
-    public function cancel_appointment(AppointmentService $appointmentService)
+    public function cancel_appointment()
     {
         $appointment = Appointment::find(request()->appointmentId);
 
@@ -538,7 +496,7 @@ class AppointmentsController extends ApiBaseController
             // Return all patients falling in the given facility id
             if ($this->authUser()->can(' View Appointments')):
 
-                return $appointmentService->all_appointments();
+                return $this->appointmentService->all_appointments();
             endif;
         endif;
 
