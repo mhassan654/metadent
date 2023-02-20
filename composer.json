@@ -44,7 +44,7 @@
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/",
-            "Metadent\\AuthModule\\": "app/Modules/Metadent/AuthModule/src"
+            "Metadent\\AuthModule\\": "Modules/AuthModule/src"
         },
         "files": [
             "app/Modules/Core/Helpers.php",
