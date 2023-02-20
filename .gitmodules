@@ -1,0 +1,3 @@
+[submodule "AuthModule"]
+	path = AuthModule
+	url = /Users/user/Desktop/metadent/Modules/AuthModule
