@@ -2,11 +2,11 @@
 
 namespace App\Services\RecallService;
 
-use Mail;
-use App\Models\Employee;
-use App\Models\smsPatient;
 use App\Mail\RecallMailing;
+use App\Models\smsPatient;
+use App\Modules\Metadent\AuthModule\src\Models\Employee;
 use buibr\Budget\BudgetSMS;
+use Mail;
 
 class AllRecallService
 {
@@ -84,7 +84,7 @@ class AllRecallService
         //  add message
         $budget->setMessage($msge);
 
-        //  Send the message 
+        //  Send the message
         $send = $budget->send();
         $res = $send->response;
         if ($res) {

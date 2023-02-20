@@ -2,10 +2,11 @@
 
 namespace App\Models;
 
+use App\Modules\Metadent\AuthModule\src\Models\Employee;
 use App\Traits\MolliePaymentTrait;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Invoice extends Model
 {

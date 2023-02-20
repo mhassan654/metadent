@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers\Api\v2;
 
-use App\Http\Controllers\ApiBaseController;
-use App\Models\Employee;
+use App\Modules\Metadent\AuthModule\src\Models\Employee;
 use Carbon\Carbon;
+
 //use Illuminate\Foundation\Auth\VerifiesEmails;
-use Illuminate\Http\Request;
 
 class VerificationController extends BaseController
 {

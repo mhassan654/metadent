@@ -4,17 +4,16 @@ namespace App\Http\Controllers\Api\v2;
 
 use App\Exports\PatientLogExport;
 use App\Exports\PatientsExport;
-use App\Modules\Common\Helper;
-use App\Modules\Core\LogActivity;
-use App\Http\Controllers\ApiBaseController;
+use App\Exports\PatientTodayAppointmentsExport;
 use App\Mail\AppointmentInvitation;
 use App\Mail\PatientCredentials;
 use App\Models\Appointment;
 use App\Models\AutoMail;
-use App\Models\Employee;
 use App\Models\HealthHistory;
 use App\Models\Patient;
-use App\Models\User;
+use App\Modules\Common\Helper;
+use App\Modules\Core\LogActivity;
+use App\Modules\Metadent\AuthModule\src\Models\Employee;
 use App\Traits\FrontOfficeTrait;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Carbon\Carbon;
@@ -25,9 +24,6 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
-use App\Http\Resources\PatientLogsResource;
-use App\Models\LogActivity as Logs;
-use App\Exports\PatientTodayAppointmentsExport;
 use Maatwebsite\Excel\Facades\Excel;
 
 class PatientsController extends BaseController

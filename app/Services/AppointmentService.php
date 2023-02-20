@@ -11,27 +11,22 @@
 
 namespace App\Services;
 
-use Exception;
-use Carbon\Carbon;
-use App\Models\User;
-use App\Models\Patient;
-use App\Models\Employee;
-use App\Models\Appointment;
 use App\Helpers\LogActivity;
-use Illuminate\Http\Request;
-use App\Models\AppointmentType;
-use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Mail;
-use App\Mail\AppointmentReminderMail;
-use App\Traits\AppointmentsTrait;
-use Illuminate\Support\Facades\Config;
-use Illuminate\Support\Facades\Validator;
 use App\Http\Resources\AppointmentResource;
 use App\Jobs\AppointmentAssignAvailableDoctorJob;
+use App\Models\Appointment;
+use App\Models\AppointmentType;
+use App\Models\Patient;
+use App\Modules\Metadent\AuthModule\src\Models\Employee;
+use App\Traits\AppointmentsTrait;
+use Carbon\Carbon;
+use Exception;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
-use Symfony\Component\HttpKernel\Exception\UnprocessableEntityHttpException;
+use Illuminate\Support\Facades\Validator;
 
 class AppointmentService
 {
@@ -216,7 +211,7 @@ class AppointmentService
                                 "phase_id" => $appointment['phaseId'],
                                 'is_recallable' => (int) $appointment['is_next'] ,
                             ]);
-                           
+
 
                             if ($counter === 1)
                                 $parent_id = $new_appointment->id;

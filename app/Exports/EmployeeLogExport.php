@@ -19,7 +19,7 @@ class EmployeeLogExport implements FromCollection, withHeadings, withMapping
     }
     public function collection()
     {
-        return \App\Models\Employee::with(['department', 'latestLog'])->whereIn('id', $this->employees)->latest()->get();
+        return \App\Modules\Metadent\AuthModule\src\Models\Employee::with(['department', 'latestLog'])->whereIn('id', $this->employees)->latest()->get();
     }
 
     public function headings(): array

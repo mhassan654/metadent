@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Api\v2;
 
 // use DB;
-use App\Http\Controllers\ApiBaseController;
 use App\Http\Resources\chatEmployeeResource;
 use App\Mail\Emailling;
 use App\Mail\GeneralMail;
@@ -11,22 +10,21 @@ use App\Mail\ReplyZorgmail;
 use App\Models\Attachmentsdocs;
 use App\Models\Chatting;
 use App\Models\Draft;
-use App\Models\Employee;
 use App\Models\onboardingDoc;
 use App\Models\Patient;
 use App\Models\replying;
 use App\Models\smsPatient;
 use App\Models\User;
+use App\Modules\Metadent\AuthModule\src\Models\Employee;
 use App\Notifications\EmailNotification;
 use App\Services\GeneralComService\GeneralComService;
 use App\Services\onBoardDocuments\OnBoardDocuments;
 use App\Services\RecallService\RecallService;
 use App\Services\Sms\SmsService;
-// use App\zorgmailService\smsService;
-use App\zorgmailService\AddressBook;
-use App\zorgmailService\zorgCurl;
 use App\ZorgMail\mailHealth;
 use App\ZorgMail\ZorgConnect;
+use App\zorgmailService\AddressBook;
+use App\zorgmailService\zorgCurl;
 use Barryvdh\DomPDF\Facade\Pdf;
 use buibr\Budget\BudgetSMS;
 use Carbon\Carbon;
@@ -34,10 +32,11 @@ use Dompdf\Dompdf;
 use Exception;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Notification;
 use Throwable;
+
+// use App\zorgmailService\smsService;
 
 class ChatingController extends BaseController
 {
@@ -669,7 +668,7 @@ class ChatingController extends BaseController
             if (Auth::guard('patient')->check()) {
 
                 $inbo->where('notifiable_id', '=', $user->id)
-                    ->where('notifiable_type', 'App\Models\Employee');
+                    ->where('notifiable_type', 'App\Modules\Metadent\AuthModule\src\Models\Employee');
             }
             $inbo->where('type', 'App\Notifications\EmailNotification')
                 ->where('data->flag_status', $flag_status)

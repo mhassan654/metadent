@@ -2,31 +2,30 @@
 
 namespace App\Http\Controllers\Api\v2;
 
-use Exception;
-use Carbon\Carbon;
-use App\Models\User;
-use App\Modules\Common\Helper;
-use App\Models\Patient;
-use App\Models\AutoMail;
-use App\Models\Employee;
-use App\Models\Department;
-use App\Models\Appointment;
-use App\Modules\Core\LogActivity;
-use Illuminate\Http\Request;
-use Barryvdh\DomPDF\Facade\Pdf;
-use App\Models\AppointmentStatus;
 use App\Exports\AppointmentsExport;
-use App\Services\AppointmentService;
-use Google\Service\CloudSearch\Card;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Mail;
-use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\patientAppointmentExport;
+use App\Http\Controllers\ApiBaseController;
+use App\Http\Resources\AppointmentResource;
 use App\Mail\AppointmentReminderMail;
 use App\Mail\PatientAppointmentReminder;
-use App\Http\Controllers\ApiBaseController;
+use App\Models\Appointment;
+use App\Models\AppointmentStatus;
+use App\Models\AutoMail;
+use App\Models\Department;
+use App\Models\Patient;
+use App\Models\User;
+use App\Modules\Common\Helper;
+use App\Modules\Core\LogActivity;
+use App\Modules\Metadent\AuthModule\src\Models\Employee;
+use App\Services\AppointmentService;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Carbon\Carbon;
+use Exception;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
-use App\Http\Resources\AppointmentResource;
-use App\Exports\patientAppointmentExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class AppointmentsController extends ApiBaseController
 {

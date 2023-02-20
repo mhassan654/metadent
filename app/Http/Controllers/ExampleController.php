@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Modules\Metadent\AuthModule\src\Http\Controllers\BaseController;
 
 class ExampleController extends BaseController
 {

@@ -2,20 +2,19 @@
 
 namespace App\Http\Controllers\Api\v2;
 
-use Carbon\Carbon;
+use App\Http\Controllers\ApiBaseController;
+use App\Models\Translation;
 use App\Modules\Common\Helper;
 use App\Modules\Core\LogActivity;
-use App\Models\Employee;
-use App\Models\Translation;
-use Illuminate\Support\Str;
-use App\Models\EmployeeCode;
+use App\Modules\Metadent\AuthModule\src\Models\Employee;
+use App\Modules\Metadent\AuthModule\src\Models\EmployeeCode;
+use App\Modules\Metadent\AuthModule\src\Services\AuthService;
+use App\Modules\Metadent\AuthModule\src\Services\Google2faService;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
-use App\Services\Auth\AuthService;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
-use App\Http\Controllers\ApiBaseController;
-use App\Services\Auth\Google2faService;
-use Illuminate\Support\Facades\RateLimiter;
+use Illuminate\Support\Str;
 
 
 class AuthenticationController extends ApiBaseController

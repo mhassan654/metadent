@@ -2,7 +2,7 @@
 
 namespace App\Http\Resources;
 
-use App\Models\Employee;
+use App\Modules\Metadent\AuthModule\src\Models\Employee;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class GeneralRemarkResource extends JsonResource
@@ -24,10 +24,10 @@ class GeneralRemarkResource extends JsonResource
             "tooth_element" => $this->tooth_element,
             "general_remark_category" => $this->general_remark_category,
             "general_remark_description" => $this->general_remark_description,
-            "created_by" => (!is_null($this->created_by)) ? 
+            "created_by" => (!is_null($this->created_by)) ?
                 Employee::find($this->created_by)->full_name
                  : "",
-            "updated_by" => (!is_null($this->updated_by)) ? 
+            "updated_by" => (!is_null($this->updated_by)) ?
                 Employee::find($this->updated_by)->full_name
                 : "",
             "treatment_status" => $this->treatment_status,

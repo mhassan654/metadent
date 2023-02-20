@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
-use App\Models\Employee;
-use Illuminate\Database\Eloquent\Model;
+use App\Modules\Metadent\AuthModule\src\Models\Employee;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 class EmpAttendance extends Model
 {

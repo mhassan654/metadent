@@ -11,13 +11,8 @@
 
 namespace App\Services\Tasks;
 
-use Exception;
 use App\Models\Task;
-use App\Models\Invoice;
-use App\Models\InvoiceTransaction;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Validator;
 use Spatie\Permission\Exceptions\UnauthorizedException;
 
 class TaskListService
@@ -42,7 +37,7 @@ class TaskListService
                     ]);
                 }
                 $task->status = \App\Models\Status::where('id', $task->status_id)->first(['id', 'title']);
-                $task->created_by = !is_null($task->created_by) ? \App\Models\Employee::where('id', $task->created_by)->first(['id', 'first_name', 'last_name'])
+                $task->created_by = !is_null($task->created_by) ? \App\Modules\Metadent\AuthModule\src\Models\Employee::where('id', $task->created_by)->first(['id', 'first_name', 'last_name'])
                     ->makeHidden(['roles', 'permissions']) : null;
                 unset($task->status_id);
                 unset($task->employee_id);
@@ -71,9 +66,9 @@ class TaskListService
                 }
 
                 $task->status = \App\Models\Status::where('id', $task->status_id)->first(['id', 'title']);
-                $task->employee = !is_null($task->employee_id) ? \App\Models\Employee::where('id', $task->employee_id)->first(['id', 'first_name', 'last_name'])
+                $task->employee = !is_null($task->employee_id) ? \App\Modules\Metadent\AuthModule\src\Models\Employee::where('id', $task->employee_id)->first(['id', 'first_name', 'last_name'])
                     ->makeHidden(['roles', 'permissions']) : null;
-                $task->created_by = !is_null($task->created_by) ? \App\Models\Employee::where('id', $task->created_by)->first(['id', 'first_name', 'last_name'])
+                $task->created_by = !is_null($task->created_by) ? \App\Modules\Metadent\AuthModule\src\Models\Employee::where('id', $task->created_by)->first(['id', 'first_name', 'last_name'])
                     ->makeHidden(['roles', 'permissions']) : null;
                 unset($task->status_id);
                 unset($task->employee_id);
@@ -91,12 +86,12 @@ class TaskListService
             $user = Auth::user();
         if($user)
             if($user->hasAnyRole(['Front-Office', 'Super-Admin','Receiptionist'])){
-                $unassigned_tasks = Task::doesntHave('employee')->with('status')->latest()->get(); 
+                $unassigned_tasks = Task::doesntHave('employee')->with('status')->latest()->get();
                 $my_tasks = $user->tasks()->where('tasks.facility_id',$user->facility_id)->with(['status','employee'])
                     ->where('status_id','!=',3)
                     ->latest()->get();
                 // dd($my_tasks);
-               
+
                 $overdue_tasks = Task::where('facility_id',$user->facility_id)->with(['status','employee'])
                                 ->where('status_id',4)
                                 ->latest()->get();

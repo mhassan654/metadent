@@ -2,9 +2,9 @@
 
 namespace App\Services\Employee;
 
-use App\Models\Employee;
-use App\Mail\SendCodeMail;
 use App\Helpers\LogActivity;
+use App\Mail\SendCodeMail;
+use App\Modules\Metadent\AuthModule\src\Models\Employee;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;

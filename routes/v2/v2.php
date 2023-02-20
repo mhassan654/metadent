@@ -43,7 +43,7 @@ Route::prefix("v2")->group(function () {
 //
 //    require __DIR__ . "/treatments/other_specified_treatments.php";
 //
-    require __DIR__ . "/auth/auth.php";
+//    require __DIR__ . "/auth/auth.php";
 //
 //    require __DIR__ . "/doneprocedures/doneprocedures.php";
 //

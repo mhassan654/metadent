@@ -13,7 +13,7 @@ use App\Http\Controllers\SmsController;
 use App\Http\Controllers\Api\v2\AuthenticationController;
 use Illuminate\Support\Facades\Route;
 
-Route::group(['prefix' => 'auth'], function () {
+Route::group(['prefix' => 'api/v2/auth'], function () {
 
     Route::post("login", [AuthenticationController::class, "two_factor_login"]);
 

@@ -78,7 +78,7 @@ return [
         ],
         'employees' => [
             'driver' => 'eloquent',
-            'model' => App\Models\Employee::class,
+            'model' => \App\Modules\Metadent\AuthModule\src\Models\Employee::class,
         ],
     ],
 

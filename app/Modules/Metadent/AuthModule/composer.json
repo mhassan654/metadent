@@ -1,0 +1,55 @@
+{
+    "name": "metadent/auth-module",
+    "description": "Scaffolding the metadent authentication package module",
+    "keywords": [
+        "metadent",
+        "auth-module"
+    ],
+    "homepage": "https://github.com/metadent/auth-module",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "MUWONGE HASSAN",
+            "email": "hassansaava@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.4|^8.0",
+        "illuminate/support": "^8.0",
+        "tymon/jwt-auth": "^2.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^6.0",
+        "../../../../vendor/phpunit/phpunit": "^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Metadent\\AuthModule\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Metadent\\AuthModule\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Metadent\\AuthModule\\AuthModuleServiceProvider"
+            ],
+            "aliases": {
+                "AuthModule": "Metadent\\AuthModule\\Facades\\AuthModuleFacade"
+            }
+        }
+    }
+}

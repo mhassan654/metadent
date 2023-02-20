@@ -2,16 +2,12 @@
 
 namespace App\Http\Controllers\Api\v2;
 
-use App\Http\Controllers\ApiBaseController;
-use Illuminate\Http\Request;
-use App\Models\Patient;
 use App\Models\Appointment;
-use App\Models\Treatment;
-use App\Models\Invoice;
-use App\Models\Employee;
 use App\Models\DoneTreatment;
-use App\Models\InvoiceTransaction;
-use stdClass;
+use App\Models\Invoice;
+use App\Models\Patient;
+use App\Models\Treatment;
+use App\Modules\Metadent\AuthModule\src\Models\Employee;
 
 class ReportController extends BaseController
 {

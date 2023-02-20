@@ -2,20 +2,18 @@
 
 namespace App\Http\Controllers\Api\v2;
 
-use App\Http\Controllers\ApiBaseController;
-use Auth;
-use DateTime;
-use Carbon\Carbon;
-use App\Models\Employee;
-use Illuminate\Http\Request;
-use App\Models\EmpAttendance;
-use App\Models\AttendanceHistory;
-use Illuminate\Support\Facades\DB;
-use App\Http\Controllers\ApiBaseController;
-use Maatwebsite\Excel\Facades\Excel;
 use App\Imports\AttendancesHistoryImport;
+use App\Models\AttendanceHistory;
+use App\Models\EmpAttendance;
+use App\Modules\Metadent\AuthModule\src\Models\Employee;
+use Auth;
+use Carbon\Carbon;
+use DateTime;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use JamesMills\LaravelTimezone\Facades\Timezone;
+use Maatwebsite\Excel\Facades\Excel;
 
 class AttendanceHistoryController extends BaseController
 {

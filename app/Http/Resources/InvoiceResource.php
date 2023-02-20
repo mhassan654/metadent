@@ -2,8 +2,8 @@
 
 namespace App\Http\Resources;
 
-use App\Models\Employee;
 use App\Models\Patient;
+use App\Modules\Metadent\AuthModule\src\Models\Employee;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class InvoiceResource extends JsonResource

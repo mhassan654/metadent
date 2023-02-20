@@ -2,25 +2,20 @@
 
 namespace App\Http\Controllers\Api\v2;
 
-use App\Models\Employee;
-use App\Mail\SendCodeMail;
-use App\Modules\Core\LogActivity;
-use Illuminate\Http\Request;
+use App\Exports\DoctorTreatmentsExport;
 use App\Exports\EmployeeExport;
+use App\Exports\EmployeeLogExport;
+use App\Http\Requests\UpdateEmployeeRequest;
+use App\Modules\Core\LogActivity;
+use App\Modules\Metadent\AuthModule\src\Models\Employee;
+use App\Services\Employee\EmployeeService;
 use App\Traits\PasswordChecker;
 use Barryvdh\DomPDF\Facade\Pdf;
-use App\Exports\EmployeeLogExport;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Http\Controllers\ApiBaseController;
-use App\Mail\SendResetPasswordEmail;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Mail;
-use Maatwebsite\Excel\Facades\Excel;
-use App\Exports\DoctorTreatmentsExport;
 use Illuminate\Support\Facades\Validator;
-use App\Services\Employee\EmployeeService;
-use App\Http\Requests\UpdateEmployeeRequest;
+use Maatwebsite\Excel\Facades\Excel;
 
 class EmployeeController extends BaseController
 {
@@ -235,7 +230,7 @@ class EmployeeController extends BaseController
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Employee  $employee
+     * @param  \App\Modules\Metadent\AuthModule\src\Models\Employee  $employee
      * @return \Illuminate\Http\Response
      */
     public function show()
@@ -303,7 +298,7 @@ class EmployeeController extends BaseController
      * Update the specified resource in storage.
      *
      * @param  \App\Http\Requests\UpdateEmployeeRequest  $request
-     * @param  \App\Models\Employee  $employee
+     * @param  \App\Modules\Metadent\AuthModule\src\Models\Employee  $employee
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request)

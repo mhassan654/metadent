@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers\Api\v2;
 
-use App\Modules\Common\Helper;
-use App\Models\Employee;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Spatie\Permission\Models\Role;
-use Illuminate\Support\Facades\Cache;
-use Spatie\Permission\Models\Permission;
 use App\Http\Controllers\ApiBaseController;
+use App\Modules\Common\Helper;
+use App\Modules\Metadent\AuthModule\src\Models\Employee;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class RolesController extends ApiBaseController
 {

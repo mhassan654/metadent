@@ -2,26 +2,24 @@
 
 namespace App\Http\Controllers\Api\v2;
 
-use Carbon\Carbon;
+use App\Exports\InvoicesExport;
+use App\Http\Controllers\ApiBaseController;
+use App\Http\Resources\InvoiceResource;
+use App\Mail\InvoiceCreation;
 use App\Models\Invoice;
 use App\Models\Patient;
-use App\Models\Employee;
 use App\Models\Treatment;
 use App\Modules\Core\LogActivity;
-use Google\Service\Resource;
-use Illuminate\Http\Request;
-use App\Mail\InvoiceCreation;
-use App\Exports\InvoicesExport;
 use Barryvdh\DomPDF\Facade\Pdf;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Mail;
-use Maatwebsite\Excel\Facades\Excel;
-use App\Http\Resources\InvoiceResource;
+use Carbon\Carbon;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
-use App\Http\Controllers\ApiBaseController;
 use Illuminate\Support\Facades\Validator;
+use Maatwebsite\Excel\Facades\Excel;
 
 class InvoicesController extends ApiBaseController
 {

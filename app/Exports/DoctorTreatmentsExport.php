@@ -19,7 +19,7 @@ class DoctorTreatmentsExport implements FromCollection, WithHeadings, withMappin
      */
     public function collection()
     {
-        return \App\Models\Employee::with(['treatments.invoices', 'department'])->has('treatments')->whereIn('id', $this->doctors)->latest()->get()->map(function ($doctor) {
+        return \App\Modules\Metadent\AuthModule\src\Models\Employee::with(['treatments.invoices', 'department'])->has('treatments')->whereIn('id', $this->doctors)->latest()->get()->map(function ($doctor) {
             $doctor->setRelation('treatments', $doctor->treatments->take(1));
             return $doctor;
         });

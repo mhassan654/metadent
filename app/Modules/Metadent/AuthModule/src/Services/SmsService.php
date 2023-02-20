@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\Sms;
+namespace Metadent\AuthModule\Services;
 
 use Illuminate\Support\Facades\Log;
 

@@ -2,18 +2,15 @@
 
 namespace App\Http\Controllers\Api\v3;
 
-use stdClass;
-use Carbon\Carbon;
-use App\Models\Event;
-use App\Models\Employee;
-use App\Models\Facility;
-use App\Models\Appointment;
-use App\Traits\FrontOfficeTrait;
-use Illuminate\Support\Facades\DB;
-use App\Http\Controllers\ApiBaseController;
-use Illuminate\Support\Facades\Auth;
-use App\Http\Resources\EventResource;
 use App\Http\Resources\AppointmentResource;
+use App\Http\Resources\EventResource;
+use App\Models\Appointment;
+use App\Models\Event;
+use App\Modules\Metadent\AuthModule\src\Models\Employee;
+use App\Traits\FrontOfficeTrait;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class CalendarController extends Controller
 {

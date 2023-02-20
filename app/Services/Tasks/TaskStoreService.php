@@ -10,16 +10,13 @@
 
 namespace App\Services\Tasks;
 
-use App\Models\Task;
-use App\Models\Department;
-use App\Traits\ApiResponser;
-use App\Models\SubDepartment;
 use App\Http\Controllers\Controller;
+use App\Jobs\ProcessTaskCreationNotificationsJob;
+use App\Models\Task;
+use App\Notifications\TaskCreatedNotification;
+use App\Traits\ApiResponser;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Notification;
-use App\Notifications\TaskCreatedNotification;
-use App\Jobs\ProcessTaskCreationNotificationsJob;
 
 class TaskStoreService
 {
@@ -58,10 +55,10 @@ class TaskStoreService
 
                 $task_to_return = Task::with('status:id,title')->find($task->id);
 
-                $employee = !is_null($task->employee_id) ? \App\Models\Employee::where('id', $task->employee_id)->first(['id', 'first_name', 'last_name'])
+                $employee = !is_null($task->employee_id) ? \App\Modules\Metadent\AuthModule\src\Models\Employee::where('id', $task->employee_id)->first(['id', 'first_name', 'last_name'])
                     ->makeHidden(['roles', 'permissions']) : null;
 
-                $created_by = !is_null($task->created_by) ? \App\Models\Employee::where('id', $task->created_by)->first(['id', 'first_name', 'last_name'])
+                $created_by = !is_null($task->created_by) ? \App\Modules\Metadent\AuthModule\src\Models\Employee::where('id', $task->created_by)->first(['id', 'first_name', 'last_name'])
                     ->makeHidden(['roles', 'permissions']) : null;
 
                 $task_to_return->employee = $employee;
