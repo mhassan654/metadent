@@ -1,3 +1,8 @@
 {
-    "BillingModule": true
+    "BillingModule": true,
+    "TreatmenntsModule": true,
+    "AppointmentsModule": true,
+    "PatientsModule": true,
+    "SettingsModule": true,
+    "HumanResourceModule": true
 }
