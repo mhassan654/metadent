@@ -24,6 +24,7 @@
         "meyfa/php-svg": "^0.14.2",
         "milon/barcode": "^10.0",
         "mollie/laravel-mollie": "^2.22",
+        "nwidart/laravel-modules": "^9.0",
         "orangehill/iseed": "^3.0",
         "pragmarx/google2fa-laravel": "^2.1",
         "protonemedia/laravel-xss-protection": "^1.3",
