@@ -1,23 +1,38 @@
-# Very short description of the package
+# Metadent Auth Module Package Installation
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/metadent/auth-module.svg?style=flat-square)](https://packagist.org/packages/metadent/auth-module)
 [![Total Downloads](https://img.shields.io/packagist/dt/metadent/auth-module.svg?style=flat-square)](https://packagist.org/packages/metadent/auth-module)
-![GitHub Actions](https://github.com/metadent/auth-module/actions/workflows/main.yml/badge.svg)
 
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what PSRs you support to avoid any confusion with users and contributors.
+
+This is Metadent's backend's api official authentication module package that is required to kickstart the project's api authentication.
 
 ## Installation
 
 You can install the package via composer:
 
 ```bash
-composer require metadent/auth-module
+composer require metadent/auth-module:dev-main
 ```
 
-## Usage
+### You can publish and run the migrations with:
 
 ```php
-// Usage description here
+php artisan migrate
+```
+
+### You can publish the config file with:
+
+```php
+php artisan vendor:publish --provider="Metadent\AuthModule\AuthModuleServiceProvider"  --tag="config"
+
+```
+
+### This is the contents of the published config file:
+
+```php
+return [
+];
+
 ```
 
 ### Testing
@@ -40,13 +55,10 @@ If you discover any security related issues, please email hassansaava@gmail.com 
 
 ## Credits
 
--   [MUWONGE HASSAN](https://github.com/metadent)
+-   [MUWONGE HASSAN](https://github.com/mhassan654)
 -   [All Contributors](../../contributors)
 
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 
-## Laravel Package Boilerplate
-
-This package was generated using the [Laravel Package Boilerplate](https://laravelpackageboilerplate.com).
