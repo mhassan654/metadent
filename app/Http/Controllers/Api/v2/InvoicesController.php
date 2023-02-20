@@ -23,11 +23,11 @@ use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\ApiBaseController;
 use Illuminate\Support\Facades\Validator;
 
-class InvoicesController extends BaseController
+class InvoicesController extends ApiBaseController
 {
     public function __construct()
     {
-//        $this->middleware(["auth:api"]);
+        $this->middleware(["auth:api"]);
     }
 
     public function index()

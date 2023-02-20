@@ -65,7 +65,7 @@ Route::prefix("v2")->group(function () {
 //
 //    require __DIR__ . "/appointmentreasons/appointmentreasons.php";
 //
-//    require __DIR__ . "/invoices/invoices.php";
+    require __DIR__ . "/invoices/invoices.php";
 //
 //    require __DIR__ . "/doctors/doctors.php";
 //
