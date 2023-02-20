@@ -22,7 +22,7 @@ use App\Models\SalaryAdvance;
 use App\Models\SalaryGenerate;
 use App\Models\SalarySheetGenerator;
 use App\Models\TaxCalculation;
-use App\Modules\Metadent\AuthModule\src\Models\Employee;
+use Metadent\AuthModule\Models\Employee;
 use App\Services\SalaryAdvance\SalaryAdvanceStoreService;
 use App\Traits\ApiResponser;
 use Carbon\Carbon;

@@ -6,7 +6,7 @@ use App\Http\Resources\AppointmentResource;
 use App\Http\Resources\EventResource;
 use App\Models\Appointment;
 use App\Models\Event;
-use App\Modules\Metadent\AuthModule\src\Models\Employee;
+use Metadent\AuthModule\Models\Employee;
 use App\Traits\FrontOfficeTrait;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;

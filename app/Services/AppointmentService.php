@@ -18,7 +18,7 @@ use App\Jobs\AppointmentAssignAvailableDoctorJob;
 use App\Models\Appointment;
 use App\Models\AppointmentType;
 use App\Models\Patient;
-use App\Modules\Metadent\AuthModule\src\Models\Employee;
+use Metadent\AuthModule\Models\Employee;
 use App\Traits\AppointmentsTrait;
 use Carbon\Carbon;
 use Exception;

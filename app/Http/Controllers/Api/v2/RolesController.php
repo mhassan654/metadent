@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api\v2;
 
 use App\Http\Controllers\ApiBaseController;
 use App\Modules\Common\Helper;
-use App\Modules\Metadent\AuthModule\src\Models\Employee;
+use Metadent\AuthModule\Models\Employee;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;

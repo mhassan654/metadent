@@ -15,9 +15,9 @@
             "role": "Developer"
         }
     ],
+    "minimum-stability": "stable",
     "require": {
         "php": "^7.4|^8.0",
-        "illuminate/support": "^8.0",
         "tymon/jwt-auth": "^2.0"
     },
     "require-dev": {
@@ -39,6 +39,7 @@
         "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
 
     },
+
     "config": {
         "sort-packages": true
     },

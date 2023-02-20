@@ -7,7 +7,7 @@ use App\Models\DoneTreatment;
 use App\Models\Invoice;
 use App\Models\Patient;
 use App\Models\Treatment;
-use App\Modules\Metadent\AuthModule\src\Models\Employee;
+use Metadent\AuthModule\Models\Employee;
 
 class ReportController extends BaseController
 {

@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api\v2;
 use App\Models\Appointment;
 use App\Models\QuickAppointment;
 use App\Modules\Core\LogActivity;
-use App\Modules\Metadent\AuthModule\src\Models\Employee;
+use Metadent\AuthModule\Models\Employee;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;

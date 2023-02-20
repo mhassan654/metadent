@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api\v2;
 use App\Imports\AttendancesHistoryImport;
 use App\Models\AttendanceHistory;
 use App\Models\EmpAttendance;
-use App\Modules\Metadent\AuthModule\src\Models\Employee;
+use Metadent\AuthModule\Models\Employee;
 use Auth;
 use Carbon\Carbon;
 use DateTime;

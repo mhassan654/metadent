@@ -13,7 +13,7 @@ use App\Models\HealthHistory;
 use App\Models\Patient;
 use App\Modules\Common\Helper;
 use App\Modules\Core\LogActivity;
-use App\Modules\Metadent\AuthModule\src\Models\Employee;
+use Metadent\AuthModule\Models\Employee;
 use App\Traits\FrontOfficeTrait;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Carbon\Carbon;

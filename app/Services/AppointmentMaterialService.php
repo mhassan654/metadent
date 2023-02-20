@@ -4,7 +4,7 @@ namespace App\Services;
 use App\Models\Appointment;
 use App\Models\Department;
 use App\Models\Task;
-use App\Modules\Metadent\AuthModule\src\Models\Employee;
+use Metadent\AuthModule\Models\Employee;
 use App\Notifications\TaskCreatedNotification;
 use Carbon\Carbon;
 use Illuminate\Support\Arr;

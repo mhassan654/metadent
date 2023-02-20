@@ -7,7 +7,7 @@ use App\Exports\EmployeeExport;
 use App\Exports\EmployeeLogExport;
 use App\Http\Requests\UpdateEmployeeRequest;
 use App\Modules\Core\LogActivity;
-use App\Modules\Metadent\AuthModule\src\Models\Employee;
+use Metadent\AuthModule\Models\Employee;
 use App\Services\Employee\EmployeeService;
 use App\Traits\PasswordChecker;
 use Barryvdh\DomPDF\Facade\Pdf;
@@ -230,7 +230,7 @@ class EmployeeController extends BaseController
     /**
      * Display the specified resource.
      *
-     * @param  \App\Modules\Metadent\AuthModule\src\Models\Employee  $employee
+     * @param  \Metadent\AuthModule\Models\Employee  $employee
      * @return \Illuminate\Http\Response
      */
     public function show()
@@ -298,7 +298,7 @@ class EmployeeController extends BaseController
      * Update the specified resource in storage.
      *
      * @param  \App\Http\Requests\UpdateEmployeeRequest  $request
-     * @param  \App\Modules\Metadent\AuthModule\src\Models\Employee  $employee
+     * @param  \Metadent\AuthModule\Models\Employee  $employee
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request)

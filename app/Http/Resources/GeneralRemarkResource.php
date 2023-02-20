@@ -2,7 +2,7 @@
 
 namespace App\Http\Resources;
 
-use App\Modules\Metadent\AuthModule\src\Models\Employee;
+use Metadent\AuthModule\Models\Employee;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class GeneralRemarkResource extends JsonResource

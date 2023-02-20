@@ -12,7 +12,7 @@ namespace App\Models;
 
 use App\Http\Permissions\HasPermissionsTrait;
 use App\Mail\SendCodeMail;
-use App\Modules\Metadent\AuthModule\src\Models\EmployeeCode;
+use Metadent\AuthModule\Models\EmployeeCode;
 use Exception;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Api\v2;
 
-use App\Modules\Metadent\AuthModule\src\Models\Employee;
+use Metadent\AuthModule\Models\Employee;
 use Carbon\Carbon;
 
 //use Illuminate\Foundation\Auth\VerifiesEmails;

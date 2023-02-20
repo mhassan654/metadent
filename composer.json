@@ -9,6 +9,7 @@
         "barryvdh/laravel-dompdf": "^2.0",
         "beyondcode/laravel-websockets": "^1.14",
         "buibr/budget-sms-php": "^1.0",
+        "doctrine/dbal": "^3.6",
         "endroid/qr-code": "^4.7",
         "friendsofphp/php-cs-fixer": "^3.14",
         "fruitcake/laravel-cors": "^3.0",
@@ -20,6 +21,7 @@
         "maatwebsite/excel": "^3.1",
         "mailchimp/marketing": "^3.0",
         "matthewbdaly/laravel-azure-storage": "^2.0",
+        "metadent/auth-module": "dev-main",
         "meyfa/php-svg": "^0.14.2",
         "milon/barcode": "^10.0",
         "mollie/laravel-mollie": "^2.22",
@@ -43,8 +45,7 @@
         "psr-4": {
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
-            "Database\\Seeders\\": "database/seeders/",
-            "Metadent\\AuthModule\\": "app/Modules/Metadent/AuthModule/src"
+            "Database\\Seeders\\": "database/seeders/"
         },
         "files": [
             "app/Modules/Core/Helpers.php",
@@ -71,6 +72,12 @@
             "@php artisan key:generate --ansi"
         ]
     },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "./Modules/AuthModule"
+        }
+    ],
     "extra": {
         "laravel": {
             "dont-discover": []

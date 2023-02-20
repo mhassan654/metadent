@@ -56,9 +56,9 @@ class TaskUpdateService
 
             $task_to_return = Task::with('status:id,title')->find($task->id);
 
-            $employee = \App\Modules\Metadent\AuthModule\src\Models\Employee::where('id', $task->employee_id)->first(['id', 'first_name', 'last_name'])
+            $employee = \Metadent\AuthModule\Models\Employee::where('id', $task->employee_id)->first(['id', 'first_name', 'last_name'])
                 ->makeHidden(['roles', 'permissions']);
-            $created_by = !is_null($task->created_by) ? \App\Modules\Metadent\AuthModule\src\Models\Employee::where('id', $task->created_by)->first(['id', 'first_name', 'last_name'])
+            $created_by = !is_null($task->created_by) ? \Metadent\AuthModule\Models\Employee::where('id', $task->created_by)->first(['id', 'first_name', 'last_name'])
                 ->makeHidden(['roles', 'permissions']) : null;
 
             $task_to_return->created_by = $created_by;
